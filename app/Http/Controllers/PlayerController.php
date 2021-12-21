@@ -44,6 +44,7 @@ class PlayerController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'player_rank' => $request->input('player_rank'),
+
         ]);
 
         return redirect()->route('players.index');

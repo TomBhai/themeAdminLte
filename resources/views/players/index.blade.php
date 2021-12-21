@@ -8,6 +8,10 @@
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h4 class="mb-sm-0 font-size-18 pt-2 pb-2">Players</h4>
+                        <a href="{{ route('players.create') }}" class="btn btn-success" style="float: right">
+                            <i class="fa fa-plus"></i>
+                            Add New
+                        </a>
                     </div>
                 </div>
             </div>
@@ -19,10 +23,6 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title mb-4">Players Management</h4>
-                            <a href="{{ route('players.create') }}" class="btn btn-success" style="float: right">
-                                <i class="fa fa-plus"></i>
-                                Add New
-                            </a>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped" id="example2">
 {{--                                    <div class="row">--}}
@@ -64,7 +64,7 @@
                                             <td>
                                                 {{ $item->player_rank }}
                                             </td>
-                                            <td style="display: inline-flex">
+                                            <td style="float:right">
                                                 <!-- Button trigger modal -->
                                                 {{--                                                <a href="{{ route( 'players.destroy' , [ $item->id ]) }}"--}}
                                                 {{--                                                      method="post">--}}
@@ -77,9 +77,8 @@
                                                 {{--                                                </a>--}}
                                                 <a type="button" href="{{ route( 'players.destroy' , [ $item->id ]) }}"
                                                    class="btn btn-danger pr-2 btn-sm btn-rounded waves-effect waves-light">
-                                                    Delete
+                                                    <i class="fas fa-trash"></i>
                                                 </a>
-                                                <div class="pr-2 pl-2"></div>
                                                 <a type="button" href="{{ route( 'players.show' , [ $item->id ]) }}"
                                                    class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
                                                     View Details
@@ -89,11 +88,11 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-                                <div class="col-sm-12 col-md-5">
-                                    <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">
-                                        Showing 1 to 10 of 57 entries
-                                    </div>
-                                </div>
+{{--                                <div class="col-sm-12 col-md-5">--}}
+{{--                                    <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">--}}
+{{--                                        Showing 1 to 10 of 57 entries--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 {{--                                <div class="row">--}}
 {{--                                    <div class="col-sm-12 col-md-7">--}}
 {{--                                        <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">--}}
@@ -199,7 +198,7 @@
             $('#example2').DataTable({
                 "paging": true,
                 "lengthChange": false,
-                "searching": false,
+                "searching": true,
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,

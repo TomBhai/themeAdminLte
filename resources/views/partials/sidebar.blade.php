@@ -53,7 +53,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('players.index') }}" class="nav-link ">
-                        <i class="nav-icon fas fa-id-card-alt"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
                             Players
                         </p>

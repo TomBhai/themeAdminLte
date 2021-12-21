@@ -17,9 +17,6 @@ use App\Http\Controllers\PlayerController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/demo', function () {
-    return view('demo');
-});
 
 Route::get('/main', [\App\Http\Controllers\HomeController::class, 'index'])->name('main');
 

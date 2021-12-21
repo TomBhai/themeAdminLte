@@ -1,4 +1,4 @@
-@extends('partials.layout')
+@extends('partials.app')
 @section('content')
     <div class="album text-muted">
         <div class="container">
@@ -9,4 +9,4 @@
         </div>
     </div>
 @endsection
-<b></b>
+

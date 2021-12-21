@@ -15,7 +15,7 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">UPDATE PLAYER</h5>
+                            <h5 class="card-title">PLAYER DETAILS</h5>
                         </div>
                         <div class="card-body">
                             <form method="post" action="{{ route('players.update', ['player' => $item]) }}"
@@ -47,9 +47,9 @@
                                                    value="{{ $item->player_rank}}">
                                         </div>
                                     </div>
-                                    <div class="col-md-12" style="text-align: right">
-                                        <button type="submit" class="btn btn-primary w-lg">Submit</button>
-                                    </div>
+{{--                                    <div class="col-md-12" style="text-align: right">--}}
+{{--                                        <button type="submit" class="btn btn-primary w-lg">Submit</button>--}}
+{{--                                    </div>--}}
                                 </div>
                             </form>
                         </div>
