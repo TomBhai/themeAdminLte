@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
 use App\Models\Player;
 use Illuminate\Http\Request;
@@ -70,9 +71,9 @@ class PlayerController extends Controller
         return redirect()->route('players.index');
     }
 
-    public function destroy($id)
+    public function destroy(Player $player)
     {
-        Player::destroy($id);
+        $player->delete();
         return back();
     }
 }

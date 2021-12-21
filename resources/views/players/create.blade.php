@@ -59,6 +59,20 @@
                                     @error('player_rank')
                                     <label style="color: red">{{ $message }}</label>
                                     @enderror
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+
+                                        <div class="form-floating mb-3">
+
+                                        <strong>Image*:</strong>
+
+                                            <input type="file" name="image" class="form-control" placeholder="image">
+
+                                        </div>
+
+                                    </div>
+                                    @error('image')
+                                    <label style="color: red">{{ $message }}</label>
+                                    @enderror
                                     <div class="col-md-12" style="text-align: right">
                                         <button type="submit" class="btn btn-primary w-lg">Submit</button>
                                     </div>

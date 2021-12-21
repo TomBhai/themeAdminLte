@@ -3,13 +3,16 @@
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" data-widget="push-menu" href="#"><i class="fas fa-bars"></i></a>
+            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href= {{ route('main') }} class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href= {{ route('contact') }} class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href= {{ route('players.index') }} class="nav-link">Players</a>
         </li>
     </ul>
 

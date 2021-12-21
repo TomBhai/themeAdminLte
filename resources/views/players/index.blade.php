@@ -46,6 +46,7 @@
 {{--                                    </div>--}}
                                     <thead class="table-light">
                                     <tr>
+                                        <th class="align-middle">Image</th>
                                         <th class="align-middle">Name</th>
                                         <th class="align-middle">Email</th>
                                         <th class="align-middle">Player Ranking</th>
@@ -54,7 +55,10 @@
                                     </thead>
                                     <tbody>
                                     @foreach( $items as $item)
-                                        <tr>
+                                        <tr style="text-align:center">
+                                            <td>
+                                                <img src="/image/{{ $item->image }}" width="100px">
+                                            </td>
                                             <td>
                                                 {{ $item->name }}
                                             </td>
@@ -64,7 +68,7 @@
                                             <td>
                                                 {{ $item->player_rank }}
                                             </td>
-                                            <td style="float:right">
+                                            <td>
                                                 <!-- Button trigger modal -->
                                                 {{--                                                <a href="{{ route( 'players.destroy' , [ $item->id ]) }}"--}}
                                                 {{--                                                      method="post">--}}

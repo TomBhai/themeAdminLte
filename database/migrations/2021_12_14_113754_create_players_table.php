@@ -17,7 +17,8 @@ class CreatePlayersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->string('players_rank')->nullable('None');
+            $table->string('player_rank')->nullable('None');
+            $table->string('image');
             $table->timestamps();
         });
     }

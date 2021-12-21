@@ -18,7 +18,7 @@
                             <h5 class="card-title">PLAYER DETAILS</h5>
                         </div>
                         <div class="card-body">
-                            <form method="post" action="{{ route('players.update', ['player' => $item]) }}"
+                            <form method="post" action=""
                                   enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
@@ -28,7 +28,7 @@
                                             <label for="name">Name*:</label>
                                             <input type="text" readonly class="form-control" name="name" id="name"
                                                    placeholder="Enter Name"
-                                                   value="{{ $item->name }}">
+                                                   value="{{ $player->name }}">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -36,7 +36,7 @@
                                             <label for="email">Email*:</label>
                                             <input type="email" readonly class="form-control" name="email" id="email"
                                                    placeholder="Enter Email"
-                                                   value="{{ $item->email }}">
+                                                   value="{{ $player->email }}">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -44,8 +44,19 @@
                                             <label for="player_rank">Player Rank*:</label>
                                             <input type="text" readonly class="form-control" name="player_rank" id="player_rank"
                                                    placeholder="Enter Player Rank"
-                                                   value="{{ $item->player_rank}}">
+                                                   value="{{ $player->player_rank}}">
                                         </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+
+                                        <div class="form-floating mb-3">
+
+                                            <strong>Image:</strong>
+
+                                            <img src="/image/{{ $player->image }}" width="500px">
+
+                                        </div>
+
                                     </div>
 {{--                                    <div class="col-md-12" style="text-align: right">--}}
 {{--                                        <button type="submit" class="btn btn-primary w-lg">Submit</button>--}}
