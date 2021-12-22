@@ -9,4 +9,6 @@
     <link rel="stylesheet" href="{{ asset('/assets/css/docs.css'}}">
     <link rel="stylesheet" href="{{ asset('/assets/css/highlighter.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href= {{ asset('assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}>
+    <link rel="stylesheet" href= {{ asset('assets/plugins/toastr/toastr.min.css') }}>
 </head>

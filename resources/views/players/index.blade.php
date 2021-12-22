@@ -57,7 +57,7 @@
                                     @foreach( $items as $item)
                                         <tr style="text-align:center">
                                             <td>
-                                                <img src="/image/{{ $item->image }}" width="100px">
+                                                <img src="/image/{{ $item->image }}" width="25px">
                                             </td>
                                             <td>
                                                 {{ $item->name }}
@@ -70,23 +70,25 @@
                                             </td>
                                             <td>
                                                 <!-- Button trigger modal -->
-                                                {{--                                                <a href="{{ route( 'players.destroy' , [ $item->id ]) }}"--}}
-                                                {{--                                                      method="post">--}}
-                                                {{--                                                    @csrf--}}
-                                                {{--                                                    @method('delete')--}}
-                                                {{--                                                    <button type="submit"--}}
-                                                {{--                                                            class="btn btn-danger btn-sm btn-rounded waves-effect waves-light">--}}
-                                                {{--                                                        <i class="fal fa-trash">Delete</i>--}}
-                                                {{--                                                    </button>--}}
-                                                {{--                                                </a>--}}
-                                                <a type="button" href="{{ route( 'players.destroy' , [ $item->id ]) }}"
-                                                   class="btn btn-danger pr-2 btn-sm btn-rounded waves-effect waves-light">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                                <a type="button" href="{{ route( 'players.show' , [ $item->id ]) }}"
-                                                   class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
-                                                    View Details
-                                                </a>
+                                                                                                <form action="{{ route( 'players.destroy' , [ $item->id ]) }}"
+                                                                                                      method="post">
+                                                                                                    @csrf
+                                                                                                    @method('delete')
+                                                                                                    <button type="submit"
+                                                                                                            data-toggle="modal"
+                                                                                                            data-target="#modal-sm"
+                                                                                                            class="btn btn-lg btn-rounded waves-effect waves-light">
+                                                                                                        <i class="fas fa-times-circle"></i>
+                                                                                                    </button>
+                                                                                                    <a type="button" href="{{ route( 'players.show' , [ $item->id ]) }}"
+                                                                                                       class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                                                        View Details
+                                                                                                    </a>
+                                                                                                </form>
+{{--                                                <a type="button" href="{{ route( 'players.destroy' , [ $item->id ]) }}"--}}
+{{--                                                   class="btn btn-danger pr-2 btn-sm btn-rounded waves-effect waves-light">--}}
+{{--                                                    <i class="fas fa-trash"></i>--}}
+{{--                                                </a>--}}
                                             </td>
                                         </tr>
                                     @endforeach
@@ -189,16 +191,16 @@
     <script src= {{ asset('assets/plugins/datatables-buttons/js/buttons.html5.min.js')}}></script>
     <script src= {{ asset('assets/plugins/datatables-buttons/js/buttons.print.min.js')}}></script>
     <script src= {{ asset('assets/plugins/datatables-buttons/js/buttons.colVis.min.js')}}></script>
+    <!-- SweetAlert2 -->
+    <script src= {{ asset('assets/plugins/sweetalert2/sweetalert2.min.js') }}></script>
+    <!-- Toastr -->
+    <script src= {{ asset('assets/plugins/toastr/toastr.min.js') }}></script>
     <!-- AdminLTE App -->
     <script src= {{ asset('assets/dist/js/adminlte.min.js')}}></script>
     <!-- AdminLTE for demo purposes -->
     <script src= {{ asset('assets/dist/js/demo.js')}}></script>
     <script>
         $(function () {
-            // $("#example1").DataTable({
-            //     "responsive": true, "lengthChange": false, "autoWidth": false,
-            //     "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            // }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
                 "paging": true,
                 "lengthChange": false,
@@ -207,6 +209,17 @@
                 "info": true,
                 "autoWidth": false,
                 "responsive": true,
+            });
+        });
+        $(function() {
+            var Toast = Swal.mixin({
+                toast: true,
+                position: 'top-right',
+                showConfirmButton: true,
+                timer: 3000
+            });
+            $('.toastrDefaultWarning').click(function () {
+                toastr.warning('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
             });
         });
     </script>

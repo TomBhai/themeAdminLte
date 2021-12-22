@@ -48,15 +48,10 @@
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
-
+                                        <label for="image">Image*:</label>
                                         <div class="form-floating mb-3">
-
-                                            <strong>Image:</strong>
-
                                             <img src="/image/{{ $player->image }}" width="500px">
-
                                         </div>
-
                                     </div>
 {{--                                    <div class="col-md-12" style="text-align: right">--}}
 {{--                                        <button type="submit" class="btn btn-primary w-lg">Submit</button>--}}
