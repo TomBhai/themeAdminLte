@@ -1,26 +1,48 @@
 <?php
+
 namespace App\Http\Controllers;
 
+
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Routing\Controller;
+use App\Models\User;
 class HomeController extends Controller
 {
-
     /**
-     * Show the application home.
+     * Create a new controller instance.
      *
-     * @return \Illuminate\View\View
+     * @return void
      */
-    public function index()
+    public function __construct()
     {
-        return view('home');
+        $this->middleware('auth');
     }
 
     /**
-     * Show the application contact.
+     * Show the application dashboard.
      *
-     * @return \Illuminate\View\View
+     * @return Application|Factory|View
      */
-    public function contact()
+    public function index(): Application|Factory|View
     {
-        return view('contact');
+
+        if ($user = Auth::user()) {
+            return view('admin.home');
+        }
+
+        return view('admin.auth.login');
+    }
+
+    public function adminHome(): Factory|View|Application
+
+    {
+
+        return view('admin.home');
+
     }
 }

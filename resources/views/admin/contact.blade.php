@@ -1,12 +1,13 @@
-@extends('partials.app', [
+@extends('admin.partials.app', [
     'class' => '',
-    'elementActive' => 'home'
+    'elementActive' => 'contact'
 ])
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Home</h3>
+            <h3 class="card-title">Contact Us</h3>
+
             <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                     <i class="fas fa-minus"></i>
@@ -17,11 +18,13 @@
             </div>
         </div>
         <div class="card-body">
-            this is my home page
+            If you have any questions, queries or suggestions regarding the content here on phpflow.com, please feel free to get in touch.
+
+
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-
+            Footer
         </div>
         <!-- /.card-footer-->
     </div>

@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\Admin\PlayersController;
+use App\Http\Middleware\Authenticate;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,26 +16,35 @@ use App\Http\Controllers\PlayerController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::prefix('admin')->group(function() {
+    Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+    Route::get('logout/', 'Auth\AdminLoginController@logout')->name('admin.logout');
+    Route::get('/', 'Auth\AdminController@index')->name('admin.home');
+});
 
 //Route::get('/', function () {
-//    return view('welcome');
+//    return redirect()->route('admin.login');
 //});
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('main');
 
-Route::resource('players', \App\Http\Controllers\PlayersController::class);
-Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
+//Route::view('admin/login', 'admin.auth.login')->name('admin.login');
+//
+//Route::prefix('/admin')
+//    ->middleware('is_admin')
+//    ->name('admin.')
+//    ->group(function () {
+//        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//        Route::get('/contact', [App\Http\Controllers\PagesController::class, 'contact'])->name('contact');
+//
+//        Route::resources(['players'=>PlayersController::class]);
+//        });
 
-//Route::get('/players/index', [\App\Http\Controllers\PlayerController::class, 'index'])->name('players.index');
-//Route::get('/players/show/{id}', [\App\Http\Controllers\PlayerController::class, 'show'])->name('players.show');
-//Route::post('/players/create', [\App\Http\Controllers\PlayerController::class, 'store'])->name('players.store');
-//Route::post('/players/update', [\App\Http\Controllers\PlayerController::class, 'update'])->name('players.update');
-//Route::get('/players/create', [\App\Http\Controllers\PlayerController::class, 'create'])->name('players.create');
-//Route::get('/players/delete/{id}', [\App\Http\Controllers\PlayerController::class, 'destroy'])->name('players.destroy');
 
-//Route::resources([
-//    'player' => PlayerController::class,
-//]);
+Auth::routes();
+Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout']);
 
-Route::fallback(function() {
+Route::fallback(function () {
     return response()->json('tur ja tur ja 30 di');
 });
+
+

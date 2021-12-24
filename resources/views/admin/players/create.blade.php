@@ -1,4 +1,4 @@
-@extends('partials.app')
+@extends('admin.partials.app')
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
